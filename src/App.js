@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Footer from "./Footer";
+import PhotoList from "./PhotoList";
+import { photos } from "./robots";
+import SearchInput from "./SearchInput";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    photos: photos,
+    searchFilter: "",
+  };
+
+  onSearchChange = (e) => {
+    this.setState({
+      searchFilter: e.target.value,
+    });
+  };
+
+  render() {
+    const filterPhoto = this.state.photos.filter((photo) => {
+      return photo.name
+        .toLowerCase()
+        .includes(this.state.searchFilter.toLowerCase());
+    });
+    return (
+      <div className="pt3 bg-light-blue">
+        <h1 className="tc">IMAGE GALLERY</h1>
+        <SearchInput searchInput={this.onSearchChange} />
+        <PhotoList photos={filterPhoto} />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
