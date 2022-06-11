@@ -3,7 +3,7 @@ import Image from "./Image";
 
 const PhotoList = ({ photos }) => {
   return (
-    <div className="tc">
+    <div className="tc flex justify-around flex-wrap">
       {photos.map((lllll, idx) => {
         return (
           <Image
