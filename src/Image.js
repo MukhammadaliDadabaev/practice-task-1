@@ -1,6 +1,6 @@
 import React from "react";
 
-const Image = ({ id, url, name, info, email }) => {
+const Image = ({ url, name, info, email }) => {
   return (
     <div className="bg-blue br3 dib pb2 ma3 grow shadow-5 w-20">
       <img className="br2 dim" src={url} alt="photos" />
@@ -13,4 +13,3 @@ const Image = ({ id, url, name, info, email }) => {
   );
 };
 export default Image;
-//outline w-25 pa3 mr2

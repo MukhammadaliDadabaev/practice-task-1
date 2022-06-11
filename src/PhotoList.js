@@ -4,7 +4,7 @@ import Image from "./Image";
 const PhotoList = ({ photos }) => {
   return (
     <div className="tc">
-      {photos.map((photo, idx) => {
+      {photos.map((lllll, idx) => {
         return (
           <Image
             key={idx}
